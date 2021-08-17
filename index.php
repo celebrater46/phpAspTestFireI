@@ -23,7 +23,9 @@ function postApi() {
     $url = 'https://localhost:44395/api/members';
 
     $data = array(
-        'msg' => 'メッセージ',
+        'name' => 'Aizawa',
+        'age' => '58',
+        'fireDate' => '2021/08/18',
     );
 
     $context = array(
@@ -37,9 +39,9 @@ function postApi() {
     $html = file_get_contents($url, false, stream_context_create($context));
 
     var_dump($http_response_header);
-    echo $html;
+//    echo $html;
 }
 
-getApi();
-//postApi();
+//getApi();
+postApi();
 
