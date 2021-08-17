@@ -1,6 +1,7 @@
 <?php
 
 // https://qiita.com/okdyy75/items/d21eb95f01b28f945cc6 PHP POST送信について
+// https://qiita.com/yousan/items/dc2cc789dcb0f07a61dc PHPの外部への接続でSSLのエラーが出てしまう@KUSANAGI PHP7.2
 // API: DB_Ope_API
 
 ini_set('display_errors', "On");
@@ -19,8 +20,9 @@ var_dump($arr);
 $url = 'https://localhost:44395/api/members';
 
 $data = array(
+    'id' => 4,
     'Name' => 'Aizawa',
-    'Age' => '58',
+    'Age' => 58,
     'HireDate' => '2021/08/18',
 );
 
@@ -39,3 +41,6 @@ $html = file_get_contents($url, false, stream_context_create($context));
 
 var_dump($http_response_header);
 echo $html;
+
+
+
