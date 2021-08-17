@@ -14,9 +14,11 @@ $CURLERR = NULL;
 $data = array(
 //    'msg' => 'メッセージ',
 //    'id' => 4,
-    'Name' => 'Aizawa',
+//    'Name' => 'Aizawa',
+    'Name' => 'StoneSwamp',
     'Age' => 58,
-    'HireDate' => '2021/08/18',
+//    'HireDate' => '2021/08/18',
+    'HireDate' => '2018-06-28T00:00:00',
 );
 
 $url = 'https://localhost:44395/api/members';
