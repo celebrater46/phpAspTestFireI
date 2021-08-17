@@ -5,7 +5,7 @@
 
 ini_set('display_errors', "On");
 
-$url = 'https://localhost:44395/api/members/';
+$url = 'https://localhost:44395/api/Members/';
 
 $data = array(
     'Name' => 'StoneSwamp',

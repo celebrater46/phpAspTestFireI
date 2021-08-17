@@ -1,5 +1,9 @@
 <?php
 
+// curl -XPOST -d 'token=abcdefg12345678' https://localhost:44395/api/members/
+// curl -XPOST -d 'Name=StoneSwamp&Age=58&HireDate=2018-06-28T00:00:00' -H "Content-Type: application/json" https://localhost:44395/api/members/
+// curl -XPOST -d 'Name=StoneSwamp&Age=58&HireDate=2018-06-28T00:00:00' -H "Content-Type: application/json" https://192.168.11.4:44395/api/members/
+
 // API: DB_Ope_API
 
 ini_set('display_errors', "On");
@@ -8,8 +12,8 @@ ini_set('display_errors', "On");
 $url = 'https://localhost:44395/api/members/';
 
 $data = [
-    "Name" => "StoneSwamp",
-    "age" => "58",
+    "Name" => "Hideru",
+    "age" => "28",
     'HireDate' => '2018-06-28T00:00:00',
 ];
 
