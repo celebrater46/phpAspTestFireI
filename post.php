@@ -1,51 +1,37 @@
 <?php
 
 // https://qiita.com/okdyy75/items/d21eb95f01b28f945cc6 PHP POST送信について
-// https://qiita.com/yousan/items/dc2cc789dcb0f07a61dc PHPの外部への接続でSSLのエラーが出てしまう@KUSANAGI PHP7.2
 // API: DB_Ope_API
 
 ini_set('display_errors', "On");
-//echo "Hello World" . PHP_EOL;
 
-// Test
-//$target_url = "https://localhost:44395/api/members";
-//$options['ssl']['verify_peer']=false;
-//$options['ssl']['verify_peer_name']=false;
-////file_get_contents($target_url, false, stream_context_create($options));
-//$json = file_get_contents($target_url, false, stream_context_create($options));
-//$json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
-//$arr = json_decode($json,true);
-//var_dump($arr);
-
-$url = 'https://localhost:44395/api/members/';
-//$url = 'http://localhost:44395/api/members';
+//$url = 'https://localhost:44395/api/Members/';
+$url = 'http://localhost:63279/api/Members/';
 
 $data = array(
-//    'id' => 4,
-    'Name' => 'StoneSwamp',
-    'Age' => '58',
-//    'HireDate' => '2021/08/18',
+    'Name' => 'Sally',
+    'Age' => '34',
     'HireDate' => '2018-06-28T00:00:00',
 );
 
+$data = json_encode($data); // JSONに変換
+
 $context = array(
-//    'http' => array(
-    'ssl' => array(
+    'http' => array(
+//    'ssl' => array(
         'method'  => 'POST',
 //        'header'  => implode("\r\n", array('Content-Type: application/x-www-form-urlencoded',)),
         'header'  => implode("\r\n", array('Content-Type: application/json',)),
 //        'header'  => 'Content-Type: application/json',
-        'content' => http_build_query($data),
-        'verify_peer' => false,
-        'verify_peer_name' => false,
+//        'content' => http_build_query($data),
+        'content' => $data,
+//        'verify_peer' => false,
+//        'verify_peer_name' => false,
     )
 );
 
-//$html = file_get_contents($url, false, stream_context_create($context));
 $html = file_get_contents($url, false, stream_context_create($context));
 
 var_dump($http_response_header);
+//var_dump($context);
 //echo $html;
-
-
-
