@@ -4,6 +4,7 @@
 // https://qiita.com/yousan/items/dc2cc789dcb0f07a61dc PHPの外部への接続でSSLのエラーが出てしまう@KUSANAGI PHP7.2
 // API: DB_Ope_API
 
+
 ini_set('display_errors', "On");
 echo "Hello World" . PHP_EOL;
 
