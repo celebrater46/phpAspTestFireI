@@ -1,17 +1,26 @@
 <?php
 
-// Refer: https://qiita.com/fantm21/items/603cbabf2e78cb08133e JSONの取得
-// Refer: https://qiita.com/izanari/items/f4f96e11a2b01af72846 SSLエラーについて
 // API: DB_Ope_API
+// https://qiita.com/tokutoku393/items/3c3ba3ca581bc0381e35 PHPでHTTPリクエスト（cURL&PUTでパラメータを渡す際の注意）
 
-$url = "https://localhost:44395/api/members";
+ini_set('display_errors', "On");
 
-$options['ssl']['verify_peer']=false;
-$options['ssl']['verify_peer_name']=false;
+$url = 'https://localhost:44395/api/Members/';
+//$url = 'http://...?name=Tom';
 
-//$json = file_get_contents($url);
-$json = file_get_contents($url, false, stream_context_create($options));
-$json = mb_convert_encoding($json, 'UTF8', 'ASCII,JIS,UTF-8,EUC-JP,SJIS-WIN');
-$arr = json_decode($json,true);
+// curlの処理を始める合図
+$curl = curl_init($url);
 
-var_dump($arr);
+// リクエストのオプションをセットしていく
+curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'GET'); // メソッド指定
+curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false); // 証明書の検証を行わない
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true); // レスポンスを文字列で受け取る
+
+// レスポンスを変数に入れる
+$response = curl_exec($curl);
+
+// curlの処理を終了
+curl_close($curl);
+
+// テスト用
+var_dump($response);
