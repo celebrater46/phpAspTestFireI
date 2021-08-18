@@ -7,8 +7,8 @@ ini_set('display_errors', "On");
 $url = 'https://localhost:44395/api/Members/';
 
 $data = array(
-    'Name' => 'Ester',
-    'Age' => '36',
+    'Name' => 'Alexia',
+    'Age' => '44',
     'HireDate' => '2018-06-28T00:00:00',
 );
 
@@ -25,3 +25,4 @@ $response = curl_exec($curl);
 curl_close($curl);
 
 var_dump($response);
+//echo "Hello World";
