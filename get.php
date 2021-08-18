@@ -6,7 +6,6 @@
 ini_set('display_errors', "On");
 
 $url = 'https://localhost:44395/api/Members/';
-//$url = 'http://...?name=Tom';
 
 // curlの処理を始める合図
 $curl = curl_init($url);

@@ -1,6 +1,7 @@
 <?php
 
 // API: DB_Ope_API
+// https://qiita.com/tokutoku393/items/3c3ba3ca581bc0381e35 PHPでHTTPリクエスト（cURL&PUTでパラメータを渡す際の注意）
 // SSLでの疎通成功サンプル
 
 ini_set('display_errors', "On");
