@@ -1,29 +1,21 @@
 <?php
 
-// https://qiita.com/okdyy75/items/d21eb95f01b28f945cc6 PHP POST送信について
 // API: DB_Ope_API
+// https://qiita.com/tokutoku393/items/3c3ba3ca581bc0381e35 PHPでHTTPリクエスト（cURL&PUTでパラメータを渡す際の注意）
+// Warning: Undefined variable $http_response_header in C:\xampp\htdocs\myapps\PhpAspTestFireStone\delete.php on line 18
+// しかし削除自体は成功
 
-ini_set('display_errors', "On");
-echo "Hello World" . PHP_EOL;
+$url = 'https://localhost:44395/api/Members/7';
 
-$url = 'https://localhost:44395/api/members/3';
+$curl = curl_init($url);
+curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'DELETE');
+curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+$response = curl_exec($curl);
+curl_close($curl);
 
-//$data = array(
-//    'Name' => 'Aizawa',
-//    'Age' => '58',
-//    'HireDate' => '2021/08/18',
-//);
-
-$context = array(
-//    'http' => array( // Warning: file_get_contents(): SSL operation failed with code 1. OpenSSL Error messages: error:1416F086:SSL routines:tls_process_server_certificate:certificate verify failed
-    'ssl' => array(
-        'method'  => 'DELETE',
-        'verify_peer' => false,
-        'verify_peer_name' => false,
-    )
-);
-
-$html = file_get_contents($url, false, stream_context_create($context));
-
+// テスト用
+var_dump($response);
 var_dump($http_response_header);
-echo $html;
+//echo $response;
+//echo "Hello World";
