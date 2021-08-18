@@ -1,6 +1,7 @@
 <?php
 
 // API: DB_Ope_API
+// SSLでの疎通成功サンプル
 
 ini_set('display_errors', "On");
 

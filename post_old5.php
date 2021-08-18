@@ -1,5 +1,7 @@
 <?php
 
+// 200 OK でSSL疎通できたが、DBが更新できない
+
 // https://qiita.com/okdyy75/items/d21eb95f01b28f945cc6 PHP POST送信について
 // API: DB_Ope_API
 
@@ -32,6 +34,6 @@ $context = array(
 
 $html = file_get_contents($url, false, stream_context_create($context));
 
-//var_dump($http_response_header);
+var_dump($http_response_header);
 //var_dump($context);
-echo $html;
+//echo $html;
