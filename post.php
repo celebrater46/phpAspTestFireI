@@ -1,37 +1,27 @@
 <?php
 
-// https://qiita.com/okdyy75/items/d21eb95f01b28f945cc6 PHP POST送信について
 // API: DB_Ope_API
 
 ini_set('display_errors', "On");
 
 $url = 'https://localhost:44395/api/Members/';
-//$url = 'http://localhost:63279/api/Members/';
 
 $data = array(
-    'Name' => 'Miyon',
-    'Age' => '28',
+    'Name' => 'Ester',
+    'Age' => '36',
     'HireDate' => '2018-06-28T00:00:00',
 );
 
-$data = json_encode($data); // JSONに変換
+$json = json_encode($data); // JSONに変換
 
-$context = array(
-//    'http' => array(
-    'ssl' => array(
-        'method'  => 'POST',
-//        'header'  => implode("\r\n", array('Content-Type: application/x-www-form-urlencoded',)),
-//        'header'  => implode("\r\n", array('Content-Type: application/json',)),
-        'header'  => 'Content-Type: application/json',
-//        'content' => http_build_query($data),
-        'content' => $data,
-        'verify_peer' => false,
-        'verify_peer_name' => false,
-    )
-);
+// CURL
+$curl = curl_init($url);
+curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'POST');
+curl_setopt($curl, CURLOPT_POSTFIELDS, $json); // パラメータをセット
+curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+$response = curl_exec($curl);
+curl_close($curl);
 
-$html = file_get_contents($url, false, stream_context_create($context));
-
-//var_dump($http_response_header);
-//var_dump($context);
-echo $html;
+var_dump($response);
