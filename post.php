@@ -9,7 +9,7 @@ ini_set('display_errors', "On");
 $url = 'https://localhost:44395/api/Members/';
 
 $data = array(
-    'Name' => 'Alexia',
+    'Name' => 'StoneSwamp',
     'Age' => '44',
     'HireDate' => '2018-06-28T00:00:00',
 );

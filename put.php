@@ -7,12 +7,12 @@
 
 ini_set('display_errors', "On");
 
-$url = 'https://localhost:44395/api/Members/4';
+$url = 'https://localhost:44395/api/Members/13';
 
 $data = array(
-    'Id' => '4',
-    'Name' => 'Tamao',
-    'Age' => '39',
+    'Id' => '13',
+    'Name' => 'Ishizawa',
+    'Age' => '58',
     'HireDate' => '2018-06-28T00:00:00',
 );
 
@@ -29,5 +29,6 @@ $response = curl_exec($curl);
 curl_close($curl);
 
 var_dump($response);
+//var_dump($http_response_header);
 var_dump($http_response_header);
 //echo "Hello World";

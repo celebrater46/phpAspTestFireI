@@ -5,7 +5,7 @@
 // Warning: Undefined variable $http_response_header in C:\xampp\htdocs\myapps\PhpAspTestFireStone\delete.php on line 18
 // しかし削除自体は成功
 
-$url = 'https://localhost:44395/api/Members/7';
+$url = 'https://localhost:44395/api/Members/13';
 
 $curl = curl_init($url);
 curl_setopt($curl, CURLOPT_CUSTOMREQUEST, 'DELETE');
